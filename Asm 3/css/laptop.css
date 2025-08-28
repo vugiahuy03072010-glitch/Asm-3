@@ -1,0 +1,743 @@
+/* Thiết lập font, màu nền và margin cho body */
+body {
+  height: auto;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa; /* Màu nền xám nhạt */
+}
+
+/* Biến màu chủ đạo sử dụng cho toàn bộ trang */
+:root {
+  --color-primary: rgb(
+    29,
+    114,
+    255
+  ); /* Màu xanh chính được sử dụng xuyên suốt trang web */
+}
+
+/* Reset margin, padding và thiết lập box-sizing cho tất cả các phần tử */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Đảm bảo kích thước phần tử bao gồm cả padding và border */
+}
+
+/* Thiết lập cho tất cả các hình ảnh */
+img {
+  width: 100%; /* Hình ảnh chiếm toàn bộ chiều rộng của container */
+  display: block; /* Loại bỏ khoảng trống dưới hình ảnh */
+}
+
+/* Định dạng cho tất cả các nút */
+button {
+  cursor: pointer; /* Con trỏ chuột thành dạng bàn tay khi hover */
+  border: none; /* Loại bỏ viền */
+  padding: 5px 20px; /* Đệm trong nút */
+  border-radius: 5px; /* Bo góc nút */
+  background-color: var(--primary-color); /* Sử dụng màu chủ đạo */
+}
+
+/* Hiệu ứng khi hover vào nút */
+button:hover {
+  background-color: #157eae; /* Đổi màu nền khi hover */
+  transition: all 1s; /* Hiệu ứng chuyển đổi trong 1 giây */
+}
+
+/* Liên kết không gạch chân */
+a {
+  text-decoration: none; /* Loại bỏ gạch chân mặc định của liên kết */
+}
+
+/* Thanh kinh nghiệm (exp-bar) */
+.exp-bar {
+  width: 100px; /* Chiều rộng cố định */
+  height: 5px; /* Chiều cao thanh */
+  background-color: gray; /* Màu nền xám cho phần chưa hoàn thành */
+  display: inline-block; /* Hiển thị dạng inline-block */
+}
+
+/* Phần fill của exp-bar sử dụng màu chủ đạo */
+.fill {
+  background-color: var(
+    --color-primary
+  ); /* Sử dụng màu chủ đạo cho phần đã hoàn thành */
+}
+
+/* ===== Phần Banner ===== */
+/* Container banner */
+.banner-section {
+  position: relative; /* Đặt làm context cho các phần tử con absolute */
+  width: 100%; /* Chiều rộng toàn màn hình */
+  height: 300px; /* Chiều cao cố định cho banner */
+  overflow: hidden; /* Ẩn phần vượt quá */
+}
+
+/* Ảnh banner */
+.banner-image {
+  position: relative; /* Để có thể chỉnh sửa vị trí nếu cần */
+  width: 100%; /* Chiều rộng 100% */
+  height: auto; /* Chiều cao tự động theo tỷ lệ */
+  object-fit: cover; /* Ảnh phủ kín container */
+  display: block; /* Loại bỏ khoảng trắng dưới ảnh */
+}
+
+/* Lớp phủ mờ trên banner */
+.banner-overlay {
+  position: absolute; /* Vị trí tuyệt đối so với banner-section */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* Overlay đen mờ 40% */
+  z-index: 1; /* Đặt trên ảnh */
+}
+
+/* Text trên banner */
+.banner-text {
+  position: absolute; /* Vị trí tuyệt đối so với banner-section */
+  top: 30%; /* Căn từ trên xuống */
+  left: 50%; /* Căn giữa ngang */
+  transform: translate(-50%, -50%); /* Căn giữa tuyệt đối */
+  color: #fff; /* Màu chữ trắng */
+  text-align: center; /* Căn giữa nội dung */
+  z-index: 2; /* Trên overlay */
+}
+
+/* Tên trên banner */
+.banner-name {
+  font-size: 2.5em; /* Kích thước chữ lớn */
+  font-weight: 600; /* Độ đậm */
+  margin-bottom: 5px; /* Khoảng cách với phần tiêu đề */
+}
+
+/* Tiêu đề trên banner */
+.banner-title {
+  font-size: 1.2em; /* Kích thước chữ nhỏ hơn tên */
+  font-weight: 300; /* Độ đậm nhẹ hơn */
+  color: rgba(255, 255, 255, 0.8); /* Màu trắng mờ 80% */
+}
+
+/* ===== Phần Navbar ===== */
+/* Thanh điều hướng */
+nav {
+  display: flex; /* Sử dụng flexbox */
+  justify-content: center; /* Căn giữa theo chiều ngang */
+  align-items: center; /* Căn giữa theo chiều dọc */
+  position: relative; /* Để có thể định vị các phần tử con */
+  background: #fff; /* Nền trắng */
+  border-bottom: 1px solid #ccc; /* Viền dưới màu xám */
+  height: 80px; /* Chiều cao cố định */
+}
+
+/* Các phần tử con của nav căn giữa */
+nav > * {
+  text-align: center; /* Căn giữa nội dung text */
+  height: 100%; /* Chiều cao 100% của nav */
+  display: flex; /* Sử dụng flexbox */
+  align-items: center; /* Căn giữa theo chiều dọc */
+  justify-content: center; /* Căn giữa theo chiều ngang */
+}
+
+/* Hiệu ứng hover cho nav */
+nav .item:hover {
+  background-color: cyan; /* Đổi màu nền khi hover */
+  color: white; /* Đổi màu chữ khi hover */
+}
+
+/* ===== Phần Info ===== */
+/* Grid 2 cột cho phần thông tin */
+.grid-container {
+  display: grid; /* Sử dụng grid layout */
+  grid-template-columns: 1fr 1fr; /* Chia làm 2 cột bằng nhau */
+  gap: 20px; /* Khoảng cách giữa các cột */
+  padding: 40px; /* Đệm xung quanh */
+  background-color: #f9f9f9; /* Màu nền xám nhạt */
+}
+
+/* Cột trong grid info */
+.column {
+  background-color: white; /* Nền trắng */
+  padding: 30px; /* Đệm bên trong */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Bóng đổ nhẹ */
+  display: flex; /* Sử dụng flexbox */
+  flex-direction: column; /* Sắp xếp theo chiều dọc */
+  justify-content: center; /* Căn giữa theo chiều dọc */
+  align-items: flex-start; /* Căn trái theo chiều ngang */
+}
+
+/* Tiêu đề trong cột */
+.column h2 {
+  margin-bottom: 16px; /* Khoảng cách với nội dung bên dưới */
+  color: #333; /* Màu chữ đen nhạt */
+}
+
+/* Đoạn văn trong cột */
+.column p {
+  margin-bottom: 10px; /* Khoảng cách giữa các đoạn */
+  line-height: 1.6; /* Chiều cao dòng */
+}
+
+/* Lớp ẩn phần tử */
+.hide {
+  display: none !important; /* Ẩn phần tử và ghi đè các quy tắc khác */
+}
+
+/* Thông báo lỗi */
+.error-message {
+  color: red; /* Màu chữ đỏ */
+  font-size: 14px; /* Kích thước chữ nhỏ */
+  margin-top: 5px; /* Khoảng cách với phần trên */
+}
+
+/* ===== Phần Thông tin chính ===== */
+/* Grid 3 cột, 2 dòng cho các section chính */
+.grid-container-2 {
+  display: grid; /* Sử dụng grid layout */
+  grid-template-columns: repeat(3, 1fr); /* 3 cột đều nhau */
+  height: auto; /* Chiều cao tự động */
+  width: auto; /* Chiều rộng tự động */
+  gap: 50px; /* Khoảng cách giữa các ô */
+  grid-template-rows: repeat(2, 1fr); /* 2 dòng đều nhau */
+  justify-items: center; /* Căn giữa các item theo chiều ngang */
+  align-items: center; /* Căn giữa các item theo chiều dọc */
+}
+
+/* Section trong grid chính */
+.section {
+  padding: 20px; /* Đệm bên trong */
+  width: auto; /* Chiều rộng tự động */
+  height: auto; /* Chiều cao tự động */
+}
+
+/* Header của section */
+.section-header {
+  background-color: var(--color-primary); /* Màu nền là màu chủ đạo */
+  padding: 12px 24px; /* Đệm bên trong */
+  border-radius: 6px 6px 0 0; /* Bo góc trên */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Bóng đổ nhẹ */
+  display: flex; /* Sử dụng flexbox */
+  align-content: space-between; /* Căn giữa nội dung */
+  justify-content: space-between; /* Căn đều các phần tử */
+  align-items: center; /* Căn giữa theo chiều dọc */
+  justify-items: center; /* Căn giữa các item */
+  font-size: 22px; /* Kích thước chữ */
+  font-weight: bold; /* Độ đậm */
+  color: white; /* Màu chữ trắng */
+  text-align: left; /* Căn trái nội dung */
+  text-transform: uppercase; /* Chữ in hoa */
+}
+
+/* Tiêu đề phụ */
+.title {
+  font-weight: bold; /* Độ đậm */
+}
+
+/* Subtitle */
+.subtitle {
+  font-style: italic; /* Chữ nghiêng */
+}
+
+/* Padding cho các section theo id */
+#info,
+#experience,
+#education,
+#activities #skills,
+#hobby,
+#language,
+#project {
+  padding: 20px; /* Đệm bên trong */
+}
+
+/* Grid cho các icon sở thích */
+.iclike {
+  display: grid; /* Sử dụng grid layout */
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(120px, 1fr)
+  ); /* Cột tự động điều chỉnh */
+  gap: 20px; /* Khoảng cách giữa các ô */
+  justify-items: center; /* Căn giữa các item theo chiều ngang */
+  align-items: center; /* Căn giữa các item theo chiều dọc */
+  margin-top: 20px; /* Khoảng cách với phần trên */
+  text-align: center; /* Căn giữa nội dung text */
+}
+
+/* Icon sở thích */
+.iconlike {
+  font-size: 24px; /* Kích thước icon */
+  width: 50px; /* Chiều rộng */
+  height: 50px; /* Chiều cao */
+  border: 2px solid #1d72ff; /* Viền màu xanh */
+  border-radius: 50%; /* Bo tròn */
+  color: #1d72ff; /* Màu icon xanh */
+  display: flex; /* Sử dụng flexbox */
+  align-items: center; /* Căn giữa theo chiều dọc */
+  justify-content: center; /* Căn giữa theo chiều ngang */
+  margin-bottom: 8px; /* Khoảng cách với phần dưới */
+}
+
+/* Tên sở thích */
+.like {
+  font-size: 14px; /* Kích thước chữ nhỏ */
+  margin: 0; /* Không có margin */
+}
+
+/* ===== Phần Job Info ===== */
+/* Container cho phần thông tin công việc */
+#job-info .container {
+  display: grid; /* Sử dụng grid layout */
+  grid-template-columns: repeat(3, 1fr); /* 3 cột đều nhau */
+  gap: 40px; /* Khoảng cách giữa các ô */
+}
+
+/* Mỗi mục trong phần job info */
+.job-item {
+  border: 1px solid var(--secondary-color); /* Viền màu phụ */
+  box-shadow: 1px 1px 5px var(--secondary-color); /* Bóng đổ nhẹ */
+  position: relative; /* Để định vị các phần tử con */
+  cursor: pointer; /* Con trỏ chuột thành dạng bàn tay */
+}
+
+/* Phần header của job item */
+.job-header {
+  display: grid; /* Sử dụng grid layout */
+  grid-template-columns: 3fr 1fr; /* Tỷ lệ 3:1 */
+}
+
+/* Tiêu đề trong job header */
+.job-header h1 {
+  padding: 20px 40px; /* Đệm bên trong */
+}
+
+/* Icon trong job header */
+.job-header i {
+  padding: 20px 40px 20px 0px; /* Đệm bên trong */
+  font-size: 36px; /* Kích thước icon lớn */
+  color: gray; /* Màu xám */
+}
+
+/* Nội dung của job item (ẩn ban đầu) */
+.job-content {
+  display: none; /* Ẩn ban đầu */
+}
+
+/* Hiệu ứng hover cho job item */
+.job-item:hover {
+  padding-bottom: 50px; /* Thêm padding dưới khi hover */
+  transition: all 0.5s; /* Hiệu ứng chuyển đổi trong 0.5 giây */
+}
+
+/* Footer của job item (ẩn ban đầu) */
+.job-footer {
+  display: none; /* Ẩn ban đầu */
+}
+
+/* Hiển thị footer khi hover vào job item */
+.job-item:hover .job-footer {
+  display: flex; /* Hiển thị dạng flex */
+  position: absolute; /* Vị trí tuyệt đối */
+  bottom: 10px; /* Cách đáy 10px */
+  left: 50%; /* Căn giữa theo chiều ngang */
+  transform: translateX(-50%); /* Căn giữa chính xác */
+}
+
+/* Chi tiết công việc */
+.work-detail {
+  padding: 20px 40px; /* Đệm bên trong */
+}
+
+/* Tên công việc */
+.name-work {
+  position: relative; /* Để định vị pseudo-element */
+}
+
+/* Tạo dấu chấm tròn trước tên công việc */
+.name-work::before {
+  position: absolute; /* Vị trí tuyệt đối */
+  content: ""; /* Nội dung rỗng */
+  top: 50%; /* Căn giữa theo chiều dọc */
+  transform: translateY(-50%); /* Căn giữa chính xác */
+  left: -25px; /* Cách lề trái 25px */
+  width: 10px; /* Chiều rộng */
+  height: 10px; /* Chiều cao */
+  background-color: var(--primary-color); /* Màu nền là màu chủ đạo */
+  border-radius: 50%; /* Bo tròn */
+  filter: blur(1px); /* Hiệu ứng mờ nhẹ */
+}
+
+/* Thời gian làm việc */
+.time-line h5 {
+  font-style: italic; /* Chữ nghiêng */
+  font-weight: unset; /* Không đậm */
+  padding: 10px 0px; /* Đệm trên dưới */
+  color: gray; /* Màu xám */
+}
+
+/* Thẻ "Hiện tại" */
+.recent {
+  background-color: var(--primary-color); /* Màu nền là màu chủ đạo */
+  color: white; /* Màu chữ trắng */
+  border-radius: 5px; /* Bo góc */
+  padding: 2px 10px; /* Đệm bên trong */
+}
+
+/* Nội dung công việc và sở thích */
+.work-content h5,
+.hobby-item h5 {
+  line-height: 1.8; /* Chiều cao dòng */
+  font-weight: unset; /* Không đậm */
+  color: gray; /* Màu xám */
+}
+
+/* Grid cho phần sở thích */
+.hobbies {
+  display: grid; /* Sử dụng grid layout */
+  grid-template-columns: repeat(4, 1fr); /* 4 cột đều nhau */
+  padding: 20px 40px; /* Đệm bên trong */
+}
+
+/* Mỗi mục sở thích */
+.hobby-item {
+  text-align: center; /* Căn giữa nội dung */
+}
+
+/* Icon sở thích */
+.hobby-item i {
+  width: 50px; /* Chiều rộng */
+  color: var(--primary-color); /* Màu icon là màu chủ đạo */
+  font-size: 24px; /* Kích thước icon */
+  height: 50px; /* Chiều cao */
+  border: 1px solid; /* Viền */
+  border-radius: 50%; /* Bo tròn */
+  line-height: 50px; /* Chiều cao dòng bằng chiều cao container */
+  text-align: center; /* Căn giữa nội dung */
+  margin-bottom: 10px; /* Khoảng cách với phần dưới */
+}
+
+/* Phần ngôn ngữ và kỹ năng */
+.languages,
+.skills {
+  padding: 20px 40px; /* Đệm bên trong */
+}
+
+/* Thanh đánh giá */
+.rate {
+  width: 100%; /* Chiều rộng 100% */
+  display: grid; /* Sử dụng grid layout */
+  grid-template-columns: repeat(3, 1fr); /* 3 cột đều nhau */
+  padding: 20px 0px; /* Đệm trên dưới */
+  gap: 20px; /* Khoảng cách giữa các thanh */
+}
+
+/* Thanh đánh giá đã hoàn thành */
+.rate div.active {
+  height: 4px; /* Chiều cao */
+  background-color: var(--primary-color); /* Màu nền là màu chủ đạo */
+}
+
+/* Thanh đánh giá chưa hoàn thành */
+.rate div.inactive {
+  height: 4px; /* Chiều cao */
+  background-color: var(--secondary-color); /* Màu nền là màu phụ */
+}
+
+/* Các thanh kỹ năng (bar) */
+.bar {
+  display: inline-block; /* Hiển thị dạng inline-block */
+  width: 45px; /* Chiều rộng */
+  height: 2px; /* Chiều cao */
+  background-color: #ccc; /* Màu xám */
+  margin-right: 10px; /* Khoảng cách với thanh bên phải */
+}
+
+/* Thanh kỹ năng đã hoàn thành */
+.bar.filled {
+  background-color: #199cdb; /* Màu xanh */
+}
+
+/* ===== Phần chứng chỉ ===== */
+/* Tiêu đề phần chứng chỉ */
+#certificate .section-title {
+  padding-bottom: 30px; /* Đệm dưới */
+}
+
+/* Container cho phần chứng chỉ */
+.certificate-container {
+  display: grid; /* Sử dụng grid layout */
+  grid-template-columns: 1fr 1px 1fr; /* 2 cột bằng nhau với đường phân cách 1px */
+  gap: 40px; /* Khoảng cách giữa các ô */
+}
+
+/* Mỗi mục chứng chỉ */
+.certificate-item {
+  display: grid; /* Sử dụng grid layout */
+  grid-template-columns: 2fr 3fr; /* Tỷ lệ 2:3 */
+  gap: 20px; /* Khoảng cách giữa ảnh và nội dung */
+}
+
+/* Tiêu đề chứng chỉ */
+.certificate-content h4 {
+  text-transform: uppercase; /* Chữ in hoa */
+  font-size: 18px; /* Kích thước chữ */
+}
+
+/* Nội dung chứng chỉ */
+.certificate-content h6 {
+  font-weight: normal; /* Không đậm */
+  color: gray; /* Màu xám */
+}
+
+/* Đường phân cách dọc */
+.vertical {
+  width: 1px; /* Chiều rộng */
+  background-color: orange; /* Màu cam */
+}
+
+/* Đường phân cách ngang */
+.line {
+  height: 1px; /* Chiều cao */
+  background-color: orange; /* Màu cam */
+  grid-column: 1/4; /* Trải dài từ cột 1 đến cột 4 */
+}
+
+/* ===== Grid riêng cho phần dự án ===== */
+.project-grid {
+  width: 100vw; /* Chiều rộng 100% viewport */
+  max-width: 100vw; /* Giới hạn chiều rộng tối đa */
+  background: #fff; /* Nền trắng */
+  margin-top: 100px; /* Khoảng cách với phần trên */
+  padding: 40px 0; /* Đệm trên dưới */
+}
+
+/* Tiêu đề phần dự án */
+.project-title {
+  font-size: 2em; /* Kích thước chữ lớn */
+  font-weight: bold; /* Độ đậm */
+  color: #333; /* Màu đen nhạt */
+  margin-left: 40px; /* Khoảng cách với lề trái */
+  margin-bottom: 30px; /* Khoảng cách với phần dưới */
+}
+
+/* Hàng chứa các dự án */
+.project-row {
+  display: grid; /* Sử dụng grid layout */
+  grid-template-columns: repeat(3, 1fr); /* 3 cột đều nhau */
+  gap: 40px; /* Khoảng cách giữa các dự án */
+  max-width: 1200px; /* Giới hạn chiều rộng tối đa */
+  margin: 0 auto; /* Căn giữa */
+}
+
+/* Mỗi mục dự án */
+.project-item {
+  background: #fff; /* Nền trắng */
+  border: 1px solid #eee; /* Viền xám nhạt */
+  border-radius: 8px; /* Bo góc */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Bóng đổ nhẹ */
+  overflow: hidden; /* Ẩn phần vượt quá */
+  display: flex; /* Sử dụng flexbox */
+  flex-direction: column; /* Sắp xếp theo chiều dọc */
+}
+
+/* Hình ảnh dự án */
+.project-img {
+  width: 100%; /* Chiều rộng 100% */
+  height: 180px; /* Chiều cao cố định */
+  object-fit: cover; /* Ảnh phủ kín container */
+  border-bottom: 1px solid #eee; /* Viền dưới */
+}
+
+/* Thông tin dự án */
+.project-info {
+  padding: 20px; /* Đệm bên trong */
+  display: flex; /* Sử dụng flexbox */
+  flex-direction: column; /* Sắp xếp theo chiều dọc */
+  gap: 10px; /* Khoảng cách giữa các phần tử */
+}
+
+/* Tiêu đề dự án */
+.project-info h3 {
+  font-size: 1.1em; /* Kích thước chữ */
+  font-weight: bold; /* Độ đậm */
+  margin-bottom: 10px; /* Khoảng cách với phần dưới */
+}
+
+/* Các thẻ trong dự án */
+.project-tags {
+  display: flex; /* Sử dụng flexbox */
+  gap: 10px; /* Khoảng cách giữa các thẻ */
+  margin-bottom: 10px; /* Khoảng cách với phần dưới */
+}
+
+/* Mỗi thẻ */
+.tag {
+  background: #199cdb; /* Màu nền xanh */
+  color: #fff; /* Màu chữ trắng */
+  padding: 4px 12px; /* Đệm bên trong */
+  border-radius: 20px; /* Bo tròn */
+  font-size: 0.95em; /* Kích thước chữ */
+  display: flex; /* Sử dụng flexbox */
+  align-items: center; /* Căn giữa theo chiều dọc */
+  gap: 4px; /* Khoảng cách giữa icon và text */
+}
+
+/* Mô tả dự án */
+.project-desc {
+  display: flex; /* Sử dụng flexbox */
+  gap: 10px; /* Khoảng cách giữa tiêu đề và nội dung */
+  font-size: 0.98em; /* Kích thước chữ */
+  border-top: 1px solid #eee; /* Viền trên */
+  padding-top: 8px; /* Đệm trên */
+  margin-top: 8px; /* Khoảng cách với phần trên */
+}
+
+/* Tiêu đề trong mô tả dự án */
+.project-desc b {
+  min-width: 80px; /* Chiều rộng tối thiểu */
+  color: #555; /* Màu đen nhạt */
+}
+/* Kết thúc phần dự án */
+
+/* ===== Phần Footer ===== */
+/* Phần chân trang */
+.footer {
+  background-color: #333; /* Màu nền đen */
+  color: #fff; /* Màu chữ trắng */
+  padding: 40px 0; /* Đệm trên dưới */
+  text-align: center; /* Căn giữa nội dung */
+}
+
+/* Liên kết trong footer */
+.footer a {
+  color: #199cdb; /* Màu chữ xanh */
+  text-decoration: none; /* Không gạch chân */
+}
+
+/* Hiệu ứng hover cho liên kết trong footer */
+.footer a:hover {
+  text-decoration: underline; /* Gạch chân khi hover */
+}
+
+/* Phần thông tin liên hệ trong footer */
+.footer-contact {
+  background: #f9f9f9; /* Màu nền xám nhạt */
+  padding: 40px 0; /* Đệm trên dưới */
+  margin: 30px auto 0 auto; /* Margin trên và căn giữa */
+  width: 90%; /* Chiều rộng 90% */
+  border-radius: 4px; /* Bo góc */
+  display: flex; /* Sử dụng flexbox */
+  justify-content: center; /* Căn giữa theo chiều ngang */
+  text-align: center; /* Căn giữa nội dung text */
+}
+
+/* Icon mạng xã hội trong footer */
+.footer-contact .social-item i {
+  font-size: 5vw; /* Kích thước icon tỷ lệ với viewport */
+}
+
+/* Danh sách mạng xã hội */
+.social-list {
+  display: flex; /* Sử dụng flexbox */
+  gap: 60px; /* Khoảng cách giữa các mục */
+  justify-content: center; /* Căn giữa theo chiều ngang */
+  align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+/* Mỗi mục mạng xã hội */
+.social-item {
+  display: inline-block; /* Hiển thị dạng inline-block */
+  color: #888; /* Màu chữ xám */
+  font-size: 1.2em; /* Kích thước chữ */
+  text-decoration: none; /* Không gạch chân */
+  transition: color 0.2s; /* Hiệu ứng chuyển đổi màu */
+}
+
+/* Icon mạng xã hội */
+.social-item i {
+  font-size: 2em; /* Kích thước icon */
+  color: #199cdb; /* Màu icon xanh */
+  margin-right: 10px; /* Khoảng cách với text */
+  vertical-align: middle; /* Căn giữa theo chiều dọc */
+}
+
+/* Hiệu ứng hover cho mục mạng xã hội */
+.social-item:hover {
+  color: #199cdb; /* Đổi màu chữ khi hover */
+}
+
+/* ===== Avatar và thông tin nav ===== */
+/* Container cho avatar trong nav */
+.item-nav-avatar {
+  display: flex; /* Sử dụng flexbox */
+  flex-direction: column; /* Sắp xếp theo chiều dọc */
+  align-items: center; /* Căn giữa theo chiều ngang */
+  justify-content: center; /* Căn giữa theo chiều dọc */
+  margin: 0 40px; /* Margin trái phải */
+  position: relative; /* Để định vị các phần tử con */
+  z-index: 2; /* Đặt trên các phần tử khác */
+}
+
+/* Wrapper cho avatar */
+.nav-avatar-wrapper {
+  width: 140px; /* Chiều rộng */
+  height: 140px; /* Chiều cao */
+  border: 8px solid #fff; /* Viền trắng dày */
+  border-radius: 50%; /* Bo tròn */
+  overflow: hidden; /* Ẩn phần vượt quá */
+  background: #eee; /* Màu nền xám nhạt */
+  margin-bottom: 0; /* Không có margin dưới */
+  margin-top: -70px; /* Đẩy avatar nổi lên trên navbar */
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1); /* Bóng đổ nhẹ */
+}
+
+/* Hình ảnh avatar */
+.nav-avatar {
+  width: 100%; /* Chiều rộng 100% */
+  height: 100%; /* Chiều cao 100% */
+  object-fit: cover; /* Ảnh phủ kín container */
+  border-radius: 50%; /* Bo tròn */
+  display: block; /* Loại bỏ khoảng trắng dưới ảnh */
+}
+
+/* Tên người dùng trong nav */
+.nav-title {
+  font-size: 1.5em; /* Kích thước chữ */
+  font-weight: bold; /* Độ đậm */
+  color: #333; /* Màu đen nhạt */
+  text-align: center; /* Căn giữa nội dung */
+  margin-top: 8px; /* Khoảng cách với avatar */
+}
+
+/* Chức danh trong nav (ẩn) */
+.nav-subtitle {
+  display: none; /* Ẩn dòng chữ dưới ảnh */
+}
+
+/* ===== Nút View More chỉ hiện khi hover ===== */
+/* Ẩn phần nội dung trong section ban đầu */
+/* Ẩn phần chi tiết ban đầu */
+.timeline,
+.section .iclike,
+#language .section-content,
+#skills .section-content {
+  display: none; /* Ẩn ban đầu */
+}
+
+/* Nút View More */
+.toggle-btn {
+  display: block; /* Hiển thị dạng block */
+  margin: 10px 0; /* Margin trên dưới */
+  padding: 5px 12px; /* Đệm bên trong */
+  font-size: 14px; /* Kích thước chữ */
+  cursor: pointer; /* Con trỏ chuột thành dạng bàn tay */
+  border: 1px solid #007bff; /* Viền xanh */
+  border-radius: 4px; /* Bo góc */
+  background: #fff; /* Nền trắng */
+  color: #007bff; /* Màu chữ xanh */
+  transition: 0.3s; /* Hiệu ứng chuyển đổi */
+}
+
+/* Hiệu ứng hover cho nút View More */
+.toggle-btn:hover {
+  background: #007bff; /* Đổi màu nền khi hover */
+  color: #fff; /* Đổi màu chữ khi hover */
+}
